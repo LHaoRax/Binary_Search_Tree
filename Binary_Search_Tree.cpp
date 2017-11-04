@@ -90,9 +90,9 @@ Node *Binary_Search_Tree::put(Node *cur, int k, char v)
 	if (cur == NULL)
 		return new Node(k, v, 1);
 	if (k < cur->key)
-		cur = put(cur->lchild, k, v);
+		cur->lchild = put(cur->lchild, k, v);
 	else if (k > cur->key)
-		cur = put(cur->rchild, k, v);
+		cur->rchild = put(cur->rchild, k, v);
 	else
 		cur->value = v;
 	cur->count = size(cur->lchild) + size(cur->rchild) + 1;
